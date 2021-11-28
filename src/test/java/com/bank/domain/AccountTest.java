@@ -6,7 +6,6 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 
-import java.util.Arrays;
 import java.util.List;
 
 import static java.util.Arrays.asList;
@@ -43,7 +42,7 @@ public class AccountTest {
 
 	@Test
 	public void should_print_statement() {
-		List<Transaction> transactions = asList(new Transaction());
+		List<Transaction> transactions = asList(new Transaction("28/11/2021", 100));
 		given(transactionRepository.allTransactions()).willReturn(transactions);
 		account.printStatement();
 		verify(statementPrinter).print(transactions);
